@@ -20,6 +20,9 @@ export const metadata = {
   title: 'Horizon Studio - Creative Code, Clear Results',
   description: 'Horizon Studio - Professional web development, custom Discord bots, UI/UX design, and automation solutions. Your partner for digital excellence.',
   keywords: 'web development, discord bots, UI/UX design, automation, API integration, custom development, digital solutions',
+  icons: {
+    icon: '/favicon.png',
+  },
 };
 
 export default function RootLayout({ children }) {

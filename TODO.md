@@ -9,50 +9,50 @@ Liste des tâches restantes pour finaliser le projet.
 ### Frontend - Pages Manquantes
 
 #### Dashboard Client
-- [ ] **dashboard/orders/[id]/page.js** - Détail d'une commande
+- [x] **dashboard/orders/[id]/page.js** - Détail d'une commande ✅
   - Afficher tous les items
   - Statut de livraison avec tracking
   - Bouton télécharger facture
   - Historique des statuts
-  
-- [ ] **dashboard/messages/page.js** - Messagerie interne
+
+- [x] **dashboard/messages/page.js** - Messagerie interne ✅
   - Liste des conversations
   - Interface de chat en temps réel
   - Envoi de messages
   - Notifications non lues
-  
-- [ ] **dashboard/tickets/page.js** - Liste des tickets
+
+- [x] **dashboard/tickets/page.js** - Liste des tickets ✅
   - Tableau des tickets
   - Filtres par statut/priorité
   - Bouton créer nouveau ticket
-  
-- [ ] **dashboard/tickets/new/page.js** - Créer un ticket
+
+- [x] **dashboard/tickets/new/page.js** - Créer un ticket ✅
   - Formulaire de création
   - Upload de fichiers
   - Sélection priorité
-  
-- [ ] **dashboard/tickets/[id]/page.js** - Détail ticket
+
+- [x] **dashboard/tickets/[id]/page.js** - Détail ticket ✅
   - Conversation complète
   - Réponses du support
   - Changement de statut
   - Upload de fichiers
 
 #### Pages Détails Publiques
-- [ ] **services/[id]/page.js** - Détail d'un service
+- [x] **services/[id]/page.js** - Détail d'un service ✅
   - Description complète
   - Liste des fonctionnalités
   - Tarifs et packages
   - Formulaire de devis
   - Projets similaires
-  
-- [ ] **portfolio/[id]/page.js** - Détail d'un projet
+
+- [x] **portfolio/[id]/page.js** - Détail d'un projet ✅
   - Galerie d'images
   - Description détaillée
   - Technologies utilisées
   - Témoignage client
   - Projets similaires
-  
-- [ ] **blog/[slug]/page.js** - Article complet
+
+- [x] **blog/[slug]/page.js** - Article complet ✅
   - Contenu formaté (Markdown/HTML)
   - Table des matières
   - Partage social

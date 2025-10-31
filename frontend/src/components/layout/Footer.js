@@ -36,11 +36,15 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* Company Info */}
           <div className="lg:col-span-2">
-            <div className="flex items-center space-x-2 mb-4">
-              <div className="w-10 h-10 bg-gradient-to-br from-primary-600 to-secondary-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">HS</span>
+            <div className="flex items-center space-x-3 mb-4">
+              <div className="relative w-16 h-16">
+                <img
+                  src="/branding/logo-white.png"
+                  alt="Horizon Studio logo"
+                  className="w-full h-full object-contain drop-shadow"
+                />
               </div>
-              <span className="font-heading font-bold text-xl text-white">
+              <span className="font-heading font-bold text-2xl text-white">
                 Horizon Studio
               </span>
             </div>

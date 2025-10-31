@@ -49,11 +49,19 @@ export default function Navbar() {
       <div className="container-custom">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-gradient-to-br from-primary-600 to-secondary-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-xl">HS</span>
+          <Link href="/" className="flex items-center space-x-3">
+            <div className="relative w-12 h-12">
+              <img
+                src={isScrolled ? '/branding/logo-dark.png' : '/branding/logo-white.png'}
+                alt="Horizon Studio logo"
+                className="w-full h-full object-contain drop-shadow"
+              />
             </div>
-            <span className={`font-heading font-bold text-xl ${isScrolled ? 'text-gray-900' : 'text-white'}`}>
+            <span
+              className={`font-heading font-bold text-xl transition-colors ${
+                isScrolled ? 'text-gray-900' : 'text-white'
+              }`}
+            >
               Horizon Studio
             </span>
           </Link>
