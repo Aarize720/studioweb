@@ -17,14 +17,14 @@ const poppins = Poppins({
 });
 
 export const metadata = {
-  title: 'Studio Web - Agence de Développement Web',
-  description: 'Studio Web - Votre partenaire pour la création de sites web professionnels, applications web et solutions digitales sur mesure.',
-  keywords: 'développement web, création site web, agence web, application web, design web',
+  title: 'Horizon Studio - Creative Code, Clear Results',
+  description: 'Horizon Studio - Professional web development, custom Discord bots, UI/UX design, and automation solutions. Your partner for digital excellence.',
+  keywords: 'web development, discord bots, UI/UX design, automation, API integration, custom development, digital solutions',
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="fr" className={`${inter.variable} ${poppins.variable}`}>
+    <html lang="en" className={`${inter.variable} ${poppins.variable}`}>
       <body className={inter.className}>
         <Providers>
           {children}

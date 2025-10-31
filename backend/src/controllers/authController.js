@@ -228,6 +228,65 @@ exports.getMe = asyncHandler(async (req, res) => {
 });
 
 /**
+ * @desc    Mettre à jour le profil de l'utilisateur connecté
+ * @route   PUT /api/auth/me
+ * @access  Private
+ */
+exports.updateMe = asyncHandler(async (req, res) => {
+  const { first_name, last_name, phone, avatar } = req.body;
+
+  // Construire la requête de mise à jour dynamiquement
+  const updates = [];
+  const values = [];
+  let paramCount = 1;
+
+  if (first_name !== undefined) {
+    updates.push(`first_name = $${paramCount}`);
+    values.push(first_name);
+    paramCount++;
+  }
+
+  if (last_name !== undefined) {
+    updates.push(`last_name = $${paramCount}`);
+    values.push(last_name);
+    paramCount++;
+  }
+
+  if (phone !== undefined) {
+    updates.push(`phone = $${paramCount}`);
+    values.push(phone || null);
+    paramCount++;
+  }
+
+  if (avatar !== undefined) {
+    updates.push(`avatar = $${paramCount}`);
+    values.push(avatar || null);
+    paramCount++;
+  }
+
+  if (updates.length === 0) {
+    throw new AppError('Aucune donnée à mettre à jour', 400);
+  }
+
+  // Ajouter l'ID de l'utilisateur
+  values.push(req.user.id);
+
+  // Exécuter la mise à jour
+  const result = await query(
+    `UPDATE users SET ${updates.join(', ')}, updated_at = NOW() 
+     WHERE id = $${paramCount}
+     RETURNING id, email, first_name, last_name, phone, avatar, role, is_verified, created_at`,
+    values
+  );
+
+  res.json({
+    success: true,
+    message: 'Profil mis à jour avec succès',
+    data: result.rows[0],
+  });
+});
+
+/**
  * @desc    Demander la réinitialisation du mot de passe
  * @route   POST /api/auth/forgot-password
  * @access  Public

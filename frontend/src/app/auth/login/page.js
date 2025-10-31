@@ -55,7 +55,7 @@ export default function LoginPage() {
           <div className="text-center mb-8">
             <Link href="/" className="inline-flex items-center space-x-2 mb-6">
               <div className="w-12 h-12 bg-gradient-to-br from-primary-600 to-secondary-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">SW</span>
+                <span className="text-white font-bold text-xl">HS</span>
               </div>
             </Link>
             <h2 className="heading-2 mb-2">Connexion</h2>

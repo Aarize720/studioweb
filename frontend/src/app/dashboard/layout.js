@@ -68,7 +68,7 @@ export default function DashboardLayout({ children }) {
           {/* Logo */}
           <div className="p-6 border-b border-gray-200">
             <Link href="/" className="text-2xl font-bold text-primary">
-              StudioWeb
+              Horizon Studio
             </Link>
           </div>
 

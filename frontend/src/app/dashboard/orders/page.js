@@ -34,7 +34,7 @@ export default function OrdersPage() {
 
   const filteredOrders = orders.filter(order => {
     const matchesSearch = order.id.toString().includes(searchQuery) ||
-      order.total_amount.toString().includes(searchQuery);
+      order.total.toString().includes(searchQuery);
     const matchesStatus = statusFilter === 'all' || order.status === statusFilter;
     return matchesSearch && matchesStatus;
   });
@@ -143,7 +143,7 @@ export default function OrdersPage() {
                     <div>
                       <span className="font-medium">Montant:</span>{' '}
                       <span className="text-primary font-bold">
-                        {formatCurrency(order.total_amount)}
+                        {formatCurrency(order.total)}
                       </span>
                     </div>
                     <div>

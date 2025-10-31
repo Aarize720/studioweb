@@ -1,7 +1,7 @@
 {
-  "name": "studioweb-backend",
+  "name": "horizonstudio-backend",
   "version": "1.0.0",
-  "description": "Backend API pour Studio Web",
+  "description": "Backend API pour Horizon Studio",
   "main": "src/server.js",
   "scripts": {
     "dev": "nodemon src/server.js",
@@ -16,7 +16,7 @@
     "rest",
     "postgresql"
   ],
-  "author": "Studio Web",
+  "author": "Horizon Studio",
   "license": "MIT",
   "dependencies": {
     "express": "^4.18.2",

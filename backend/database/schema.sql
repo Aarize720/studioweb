@@ -1,4 +1,4 @@
--- Studio Web Database Schema
+-- Horizon Studio Database Schema
 -- PostgreSQL 14+
 
 -- Extensions
@@ -174,7 +174,7 @@ CREATE TABLE orders (
     paid_at TIMESTAMP,
     
     -- Order Status
-    status VARCHAR(50) DEFAULT 'pending' CHECK (status IN ('pending', 'processing', 'shipped', 'delivered', 'cancelled')),
+    status VARCHAR(50) DEFAULT 'pending' CHECK (status IN ('pending', 'processing', 'shipped', 'delivered', 'completed', 'cancelled')),
     
     -- Notes
     customer_notes TEXT,

@@ -10,6 +10,7 @@ const {
   refreshToken,
   logout,
   getMe,
+  updateMe,
   forgotPassword,
   resetPassword,
   changePassword,
@@ -28,6 +29,7 @@ router.post('/reset-password/:token', resetPassword);
 // Routes protégées
 router.post('/logout', protect, logout);
 router.get('/me', protect, getMe);
+router.put('/me', protect, updateMe);
 router.put('/change-password', protect, changePassword);
 
 module.exports = router;

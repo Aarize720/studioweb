@@ -1,16 +1,16 @@
-# Studio Web - Plateforme Complète de Développement Web
+# Horizon Studio - Creative Code, Clear Results
 
 ## 🚀 Description
 
-Plateforme web complète pour un studio de développement incluant :
-- Site vitrine avec services et portfolio
-- Boutique en ligne avec paiement Stripe/PayPal
-- Blog avec système de gestion de contenu
-- Espace client avec messagerie et tickets support
-- Dashboard administrateur complet
-- API REST sécurisée avec authentification JWT
+Complete web platform for Horizon Studio including:
+- Showcase website with services and portfolio
+- Online shop with Stripe/PayPal payment
+- Blog with content management system
+- Client area with messaging and support tickets
+- Complete admin dashboard
+- Secure REST API with JWT authentication
 
-## 📋 Technologies Utilisées
+## 📋 Technologies Used
 
 ### Frontend
 - **Next.js 14** (App Router)
@@ -33,7 +33,7 @@ Plateforme web complète pour un studio de développement incluant :
 
 ## 🛠️ Installation
 
-### Prérequis
+### Prerequisites
 
 - Node.js 18+ et npm
 - PostgreSQL 14+
@@ -41,49 +41,49 @@ Plateforme web complète pour un studio de développement incluant :
 - Compte Stripe (mode test)
 - Compte Cloudinary (gratuit)
 
-### 1. Cloner et installer les dépendances
+### 1. Clone and install dependencies
 
 ```bash
-# Installer les dépendances backend
+# Install backend dependencies
 cd backend
 npm install
 
-# Installer les dépendances frontend
+# Install frontend dependencies
 cd ../frontend
 npm install
 ```
 
-### 2. Configuration de la base de données PostgreSQL
+### 2. PostgreSQL database configuration
 
 ```bash
-# Se connecter à PostgreSQL
+# Connect to PostgreSQL
 psql -U postgres
 
-# Créer la base de données
-CREATE DATABASE studioweb;
+# Create database
+CREATE DATABASE horizonstudio;
 
-# Se connecter à la base
-\c studioweb
+# Connect to database
+\c horizonstudio
 
-# Exécuter le script SQL
+# Execute SQL scripts
 \i backend/database/schema.sql
 \i backend/database/seed.sql
 ```
 
-### 3. Configuration Redis
+### 3. Redis Configuration
 
 ```bash
-# Installer Redis (Windows)
-# Télécharger depuis https://github.com/microsoftarchive/redis/releases
-# Ou utiliser WSL/Docker
+# Install Redis (Windows)
+# Download from https://github.com/microsoftarchive/redis/releases
+# Or use WSL/Docker
 
-# Démarrer Redis
+# Start Redis
 redis-server
 ```
 
-### 4. Variables d'environnement
+### 4. Environment Variables
 
-#### Backend (.env dans /backend)
+#### Backend (.env in /backend)
 
 ```env
 # Server
@@ -94,9 +94,9 @@ FRONTEND_URL=http://localhost:3000
 # Database
 DB_HOST=localhost
 DB_PORT=5432
-DB_NAME=studioweb
+DB_NAME=horizonstudio
 DB_USER=postgres
-DB_PASSWORD=votre_mot_de_passe
+DB_PASSWORD=your_password
 
 # Redis
 REDIS_HOST=localhost
@@ -104,35 +104,35 @@ REDIS_PORT=6379
 REDIS_PASSWORD=
 
 # JWT
-JWT_SECRET=votre_secret_jwt_super_securise_changez_moi
+JWT_SECRET=your_super_secure_jwt_secret_change_me
 JWT_EXPIRE=7d
-JWT_REFRESH_SECRET=votre_refresh_secret_super_securise
+JWT_REFRESH_SECRET=your_super_secure_refresh_secret
 JWT_REFRESH_EXPIRE=30d
 
-# Email (Nodemailer - exemple avec Gmail)
+# Email (Nodemailer - example with Gmail)
 EMAIL_HOST=smtp.gmail.com
 EMAIL_PORT=587
-EMAIL_USER=votre_email@gmail.com
-EMAIL_PASSWORD=votre_mot_de_passe_application
-EMAIL_FROM=Studio Web <noreply@studioweb.com>
+EMAIL_USER=your_email@gmail.com
+EMAIL_PASSWORD=your_app_password
+EMAIL_FROM=Horizon Studio <noreply@horizonstudio.com>
 
 # Stripe
-STRIPE_SECRET_KEY=sk_test_votre_cle_secrete
-STRIPE_WEBHOOK_SECRET=whsec_votre_webhook_secret
+STRIPE_SECRET_KEY=sk_test_your_secret_key
+STRIPE_WEBHOOK_SECRET=whsec_your_webhook_secret
 
 # PayPal
-PAYPAL_CLIENT_ID=votre_client_id
-PAYPAL_CLIENT_SECRET=votre_client_secret
+PAYPAL_CLIENT_ID=your_client_id
+PAYPAL_CLIENT_SECRET=your_client_secret
 PAYPAL_MODE=sandbox
 
 # Cloudinary
-CLOUDINARY_CLOUD_NAME=votre_cloud_name
-CLOUDINARY_API_KEY=votre_api_key
-CLOUDINARY_API_SECRET=votre_api_secret
+CLOUDINARY_CLOUD_NAME=your_cloud_name
+CLOUDINARY_API_KEY=your_api_key
+CLOUDINARY_API_SECRET=your_api_secret
 
-# OAuth2 (optionnel)
-GOOGLE_CLIENT_ID=votre_google_client_id
-GOOGLE_CLIENT_SECRET=votre_google_client_secret
+# OAuth2 (optional)
+GOOGLE_CLIENT_ID=your_google_client_id
+GOOGLE_CLIENT_SECRET=your_google_client_secret
 ```
 
 #### Frontend (.env.local dans /frontend)
@@ -144,9 +144,9 @@ NEXT_PUBLIC_STRIPE_PUBLIC_KEY=pk_test_votre_cle_publique
 NEXT_PUBLIC_PAYPAL_CLIENT_ID=votre_client_id
 ```
 
-### 5. Lancement de l'application
+### 5. Launch the application
 
-#### Développement
+#### Development
 
 ```bash
 # Terminal 1 - Backend
@@ -172,10 +172,10 @@ npm run build
 npm start
 ```
 
-## 📁 Structure du Projet
+## 📁 Project Structure
 
 ```
-studioweb/
+horizonstudio/
 ├── backend/
 │   ├── src/
 │   │   ├── config/         # Configuration (DB, Redis, etc.)
@@ -205,102 +205,102 @@ studioweb/
 └── README.md
 ```
 
-## 🔐 Comptes de Test
+## 🔐 Test Accounts
 
-### Administrateur
-- **Email:** admin@studioweb.com
-- **Mot de passe:** Admin123!
+### Administrator
+- **Email:** admin@horizonstudio.com
+- **Password:** Admin123!
 
 ### Client
 - **Email:** client@example.com
-- **Mot de passe:** Client123!
+- **Password:** Client123!
 
-## 🎯 Fonctionnalités Principales
+## 🎯 Main Features
 
-### Frontend Public
-- ✅ Page d'accueil avec présentation et CTA
-- ✅ Page services avec tarifs et formulaire de devis
-- ✅ Portfolio filtrable par catégorie
-- ✅ Boutique avec panier et paiement
-- ✅ Blog avec catégories et tags
-- ✅ Formulaire de contact avec envoi email
+### Public Frontend
+- ✅ Homepage with presentation and CTA
+- ✅ Services page with pricing and quote form
+- ✅ Portfolio filterable by category
+- ✅ Shop with cart and payment
+- ✅ Blog with categories and tags
+- ✅ Contact form with email sending
 
-### Espace Client
-- ✅ Authentification (login/signup)
-- ✅ Dashboard personnel
-- ✅ Suivi des commandes
-- ✅ Système de tickets support
-- ✅ Messagerie interne temps réel
-- ✅ Gestion du profil
+### Client Area
+- ✅ Authentication (login/signup)
+- ✅ Personal dashboard
+- ✅ Order tracking
+- ✅ Support ticket system
+- ✅ Real-time internal messaging
+- ✅ Profile management
 
-### Dashboard Admin
-- ✅ Gestion des utilisateurs
-- ✅ Gestion des produits et services
-- ✅ Gestion des commandes
-- ✅ Gestion des tickets support
-- ✅ Gestion du contenu (portfolio, blog)
-- ✅ Statistiques avec graphiques
-- ✅ Logs et monitoring
+### Admin Dashboard
+- ✅ User management
+- ✅ Product and service management
+- ✅ Order management
+- ✅ Support ticket management
+- ✅ Content management (portfolio, blog)
+- ✅ Statistics with charts
+- ✅ Logs and monitoring
 
-### API Backend
-- ✅ Authentification JWT + Refresh tokens
+### Backend API
+- ✅ JWT Authentication + Refresh tokens
 - ✅ OAuth2 (Google)
-- ✅ CRUD complet pour toutes les entités
-- ✅ Upload de fichiers vers Cloudinary
-- ✅ Paiements Stripe et PayPal
-- ✅ Notifications email
-- ✅ WebSocket pour messagerie temps réel
-- ✅ Rate limiting et sécurité
-- ✅ Cache Redis
-- ✅ Gestion des erreurs centralisée
+- ✅ Complete CRUD for all entities
+- ✅ File upload to Cloudinary
+- ✅ Stripe and PayPal payments
+- ✅ Email notifications
+- ✅ WebSocket for real-time messaging
+- ✅ Rate limiting and security
+- ✅ Redis cache
+- ✅ Centralized error handling
 
-## 🔧 Scripts NPM
+## 🔧 NPM Scripts
 
 ### Backend
 ```bash
-npm run dev          # Développement avec nodemon
-npm run build        # Build pour production
-npm start            # Démarrer en production
-npm test             # Lancer les tests
-npm run lint         # Vérifier le code
+npm run dev          # Development with nodemon
+npm run build        # Build for production
+npm start            # Start in production
+npm test             # Run tests
+npm run lint         # Check code
 ```
 
 ### Frontend
 ```bash
-npm run dev          # Développement
-npm run build        # Build pour production
-npm start            # Démarrer en production
-npm run lint         # Vérifier le code
+npm run dev          # Development
+npm run build        # Build for production
+npm start            # Start in production
+npm run lint         # Check code
 ```
 
-## 🔒 Sécurité
+## 🔒 Security
 
-- ✅ Helmet.js pour headers HTTP sécurisés
-- ✅ CORS configuré
-- ✅ Protection CSRF
-- ✅ Rate limiting sur les endpoints sensibles
-- ✅ Validation des entrées avec Joi
-- ✅ Sanitization des données
-- ✅ Mots de passe hashés avec bcrypt
-- ✅ JWT avec expiration et refresh tokens
-- ✅ HTTPS en production
+- ✅ Helmet.js for secure HTTP headers
+- ✅ CORS configured
+- ✅ CSRF protection
+- ✅ Rate limiting on sensitive endpoints
+- ✅ Input validation with Joi
+- ✅ Data sanitization
+- ✅ Passwords hashed with bcrypt
+- ✅ JWT with expiration and refresh tokens
+- ✅ HTTPS in production
 
-## 📊 Base de Données
+## 📊 Database
 
-### Tables Principales
-- **users** - Utilisateurs et admins
-- **products** - Produits de la boutique
-- **services** - Services proposés
-- **orders** - Commandes
-- **order_items** - Détails des commandes
-- **portfolio** - Projets portfolio
-- **blog_posts** - Articles de blog
-- **blog_categories** - Catégories blog
-- **tickets** - Tickets support
-- **messages** - Messages internes
-- **testimonials** - Témoignages clients
+### Main Tables
+- **users** - Users and admins
+- **products** - Shop products
+- **services** - Services offered
+- **orders** - Orders
+- **order_items** - Order details
+- **portfolio** - Portfolio projects
+- **blog_posts** - Blog articles
+- **blog_categories** - Blog categories
+- **tickets** - Support tickets
+- **messages** - Internal messages
+- **testimonials** - Client testimonials
 
-## 🚀 Déploiement
+## 🚀 Deployment
 
 ### Backend (Heroku, Railway, DigitalOcean)
 ```bash
@@ -328,74 +328,74 @@ npm run build
 
 ## 📝 API Documentation
 
-L'API est documentée et accessible via :
+The API is documented and accessible via:
 - **Swagger UI:** http://localhost:5000/api-docs
-- **Postman Collection:** Disponible dans `/backend/docs/postman_collection.json`
+- **Postman Collection:** Available in `/backend/docs/postman_collection.json`
 
-### Endpoints Principaux
+### Main Endpoints
 
-#### Authentification
-- `POST /api/auth/register` - Inscription
-- `POST /api/auth/login` - Connexion
-- `POST /api/auth/refresh` - Rafraîchir le token
-- `POST /api/auth/logout` - Déconnexion
+#### Authentication
+- `POST /api/auth/register` - Register
+- `POST /api/auth/login` - Login
+- `POST /api/auth/refresh` - Refresh token
+- `POST /api/auth/logout` - Logout
 - `GET /api/auth/google` - OAuth Google
 
-#### Utilisateurs
-- `GET /api/users` - Liste (admin)
-- `GET /api/users/:id` - Détails
-- `PUT /api/users/:id` - Modifier
-- `DELETE /api/users/:id` - Supprimer (admin)
+#### Users
+- `GET /api/users` - List (admin)
+- `GET /api/users/:id` - Details
+- `PUT /api/users/:id` - Update
+- `DELETE /api/users/:id` - Delete (admin)
 
-#### Produits
-- `GET /api/products` - Liste
-- `GET /api/products/:id` - Détails
-- `POST /api/products` - Créer (admin)
-- `PUT /api/products/:id` - Modifier (admin)
-- `DELETE /api/products/:id` - Supprimer (admin)
+#### Products
+- `GET /api/products` - List
+- `GET /api/products/:id` - Details
+- `POST /api/products` - Create (admin)
+- `PUT /api/products/:id` - Update (admin)
+- `DELETE /api/products/:id` - Delete (admin)
 
-#### Commandes
-- `GET /api/orders` - Liste
-- `GET /api/orders/:id` - Détails
-- `POST /api/orders` - Créer
-- `PUT /api/orders/:id` - Modifier statut (admin)
+#### Orders
+- `GET /api/orders` - List
+- `GET /api/orders/:id` - Details
+- `POST /api/orders` - Create
+- `PUT /api/orders/:id` - Update status (admin)
 
 #### Portfolio
-- `GET /api/portfolio` - Liste
-- `GET /api/portfolio/:id` - Détails
-- `POST /api/portfolio` - Créer (admin)
-- `PUT /api/portfolio/:id` - Modifier (admin)
-- `DELETE /api/portfolio/:id` - Supprimer (admin)
+- `GET /api/portfolio` - List
+- `GET /api/portfolio/:id` - Details
+- `POST /api/portfolio` - Create (admin)
+- `PUT /api/portfolio/:id` - Update (admin)
+- `DELETE /api/portfolio/:id` - Delete (admin)
 
 #### Blog
-- `GET /api/blog` - Liste articles
-- `GET /api/blog/:slug` - Détails article
-- `POST /api/blog` - Créer (admin)
-- `PUT /api/blog/:id` - Modifier (admin)
-- `DELETE /api/blog/:id` - Supprimer (admin)
+- `GET /api/blog` - List articles
+- `GET /api/blog/:slug` - Article details
+- `POST /api/blog` - Create (admin)
+- `PUT /api/blog/:id` - Update (admin)
+- `DELETE /api/blog/:id` - Delete (admin)
 
 #### Tickets
-- `GET /api/tickets` - Liste
-- `GET /api/tickets/:id` - Détails
-- `POST /api/tickets` - Créer
-- `PUT /api/tickets/:id` - Modifier statut
-- `POST /api/tickets/:id/messages` - Ajouter message
+- `GET /api/tickets` - List
+- `GET /api/tickets/:id` - Details
+- `POST /api/tickets` - Create
+- `PUT /api/tickets/:id` - Update status
+- `POST /api/tickets/:id/messages` - Add message
 
-## 🐛 Dépannage
+## 🐛 Troubleshooting
 
-### Erreur de connexion à PostgreSQL
+### PostgreSQL connection error
 ```bash
-# Vérifier que PostgreSQL est démarré
-# Windows : Services > PostgreSQL
-# Vérifier les credentials dans .env
+# Check that PostgreSQL is running
+# Windows: Services > PostgreSQL
+# Check credentials in .env
 ```
 
-### Erreur de connexion à Redis
+### Redis connection error
 ```bash
-# Démarrer Redis
+# Start Redis
 redis-server
 
-# Ou désactiver temporairement le cache dans backend/src/config/redis.js
+# Or temporarily disable cache in backend/src/config/redis.js
 ```
 
 ### Erreur Stripe/PayPal
@@ -414,7 +414,8 @@ redis-server
 ## 📞 Support
 
 Pour toute question ou problème :
-- **Email:** support@studioweb.com
+- **Email:** admin@horizonstudio.com
+- **Discord:** https://discord.gg/4qEUNSVjQF
 - **Documentation:** Voir `/docs`
 - **Issues:** Créer une issue sur le repo
 
@@ -424,7 +425,7 @@ MIT License - Libre d'utilisation pour projets personnels et commerciaux.
 
 ## 🎉 Crédits
 
-Développé avec ❤️ par l'équipe Studio Web
+Développé avec ❤️ par l'équipe Horizon Studio
 
 ---
 

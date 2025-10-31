@@ -1,7 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import { FiFacebook, FiTwitter, FiInstagram, FiLinkedin, FiMail, FiPhone, FiMapPin } from 'react-icons/fi';
+import { FiFacebook, FiTwitter, FiInstagram, FiLinkedin, FiMail, FiPhone, FiMapPin, FiMessageSquare } from 'react-icons/fi';
+import { SiDiscord } from 'react-icons/si';
 
 const footerLinks = {
   company: [
@@ -25,10 +26,7 @@ const footerLinks = {
 };
 
 const socialLinks = [
-  { name: 'Facebook', icon: FiFacebook, href: '#' },
-  { name: 'Twitter', icon: FiTwitter, href: '#' },
-  { name: 'Instagram', icon: FiInstagram, href: '#' },
-  { name: 'LinkedIn', icon: FiLinkedin, href: '#' },
+  { name: 'Discord', icon: SiDiscord, href: 'https://discord.gg/4qEUNSVjQF' },
 ];
 
 export default function Footer() {
@@ -40,33 +38,23 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
               <div className="w-10 h-10 bg-gradient-to-br from-primary-600 to-secondary-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">SW</span>
+                <span className="text-white font-bold text-xl">HS</span>
               </div>
               <span className="font-heading font-bold text-xl text-white">
-                Studio Web
+                Horizon Studio
               </span>
             </div>
             <p className="text-gray-400 mb-6">
-              Votre partenaire pour la création de sites web professionnels et d'applications web sur mesure.
+              Creative Code, Clear Results. Your partner for professional web development, Discord bots, UI/UX design, and digital automation solutions.
             </p>
             
             {/* Contact Info */}
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
-                <FiMail className="w-5 h-5 text-primary-500" />
-                <a href="mailto:contact@studioweb.fr" className="hover:text-white transition-colors">
-                  contact@studioweb.fr
+                <SiDiscord className="w-5 h-5 text-primary-500" />
+                <a href="https://discord.gg/4qEUNSVjQF" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+                  Join our Discord
                 </a>
-              </div>
-              <div className="flex items-center space-x-3">
-                <FiPhone className="w-5 h-5 text-primary-500" />
-                <a href="tel:+33123456789" className="hover:text-white transition-colors">
-                  +33 1 23 45 67 89
-                </a>
-              </div>
-              <div className="flex items-center space-x-3">
-                <FiMapPin className="w-5 h-5 text-primary-500" />
-                <span>Paris, France</span>
               </div>
             </div>
           </div>
@@ -126,7 +114,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm mb-4 md:mb-0">
-            © {new Date().getFullYear()} Studio Web. Tous droits réservés.
+            © {new Date().getFullYear()} Horizon Studio. All rights reserved.
           </p>
 
           {/* Social Links */}

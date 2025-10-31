@@ -39,14 +39,14 @@ exports.getDashboardStats = async (req, res) => {
   
   // Total revenue
   const revenueResult = await query(`
-    SELECT COALESCE(SUM(total_amount), 0) as total FROM orders 
+    SELECT COALESCE(SUM(total), 0) as total FROM orders 
     WHERE status IN ('completed', 'processing')
   `);
   stats.totalRevenue = parseFloat(revenueResult.rows[0].total);
   
   // Revenue this month
   const revenueThisMonthResult = await query(`
-    SELECT COALESCE(SUM(total_amount), 0) as total FROM orders 
+    SELECT COALESCE(SUM(total), 0) as total FROM orders 
     WHERE status IN ('completed', 'processing')
     AND created_at >= DATE_TRUNC('month', CURRENT_DATE)
   `);
@@ -121,7 +121,7 @@ exports.getSalesStats = async (req, res) => {
     SELECT 
       DATE(created_at) as date,
       COUNT(*) as order_count,
-      COALESCE(SUM(total_amount), 0) as revenue
+      COALESCE(SUM(total), 0) as revenue
     FROM orders
     WHERE ${dateFilter} AND status IN ('completed', 'processing')
     GROUP BY DATE(created_at)
@@ -133,7 +133,7 @@ exports.getSalesStats = async (req, res) => {
     SELECT 
       status,
       COUNT(*) as count,
-      COALESCE(SUM(total_amount), 0) as revenue
+      COALESCE(SUM(total), 0) as revenue
     FROM orders
     WHERE ${dateFilter}
     GROUP BY status
@@ -198,7 +198,7 @@ exports.getUserStats = async (req, res) => {
     SELECT 
       u.id, u.first_name, u.last_name, u.email, u.avatar,
       COUNT(o.id) as order_count,
-      COALESCE(SUM(o.total_amount), 0) as total_spent
+      COALESCE(SUM(o.total), 0) as total_spent
     FROM users u
     JOIN orders o ON u.id = o.user_id
     WHERE o.status IN ('completed', 'processing')
@@ -349,7 +349,7 @@ exports.getRevenueAnalytics = async (req, res) => {
     SELECT 
       TO_CHAR(created_at, 'YYYY-MM') as month,
       COUNT(*) as order_count,
-      COALESCE(SUM(total_amount), 0) as revenue
+      COALESCE(SUM(total), 0) as revenue
     FROM orders
     WHERE ${dateFilter} AND status IN ('completed', 'processing')
     GROUP BY TO_CHAR(created_at, 'YYYY-MM')
@@ -374,9 +374,9 @@ exports.getRevenueAnalytics = async (req, res) => {
   // Average order value
   const avgOrderValueResult = await query(`
     SELECT 
-      ROUND(AVG(total_amount)::numeric, 2) as avg_order_value,
-      MIN(total_amount) as min_order_value,
-      MAX(total_amount) as max_order_value
+      ROUND(AVG(total)::numeric, 2) as avg_order_value,
+      MIN(total) as min_order_value,
+      MAX(total) as max_order_value
     FROM orders
     WHERE ${dateFilter} AND status IN ('completed', 'processing')
   `, params);

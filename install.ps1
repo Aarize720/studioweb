@@ -1,8 +1,8 @@
-# Script d'installation automatique pour Studio Web
+# Script d'installation automatique pour Horizon Studio
 # PowerShell Script
 
 Write-Host "========================================" -ForegroundColor Cyan
-Write-Host "  Studio Web - Installation Automatique" -ForegroundColor Cyan
+Write-Host "  Horizon Studio - Installation Automatique" -ForegroundColor Cyan
 Write-Host "========================================" -ForegroundColor Cyan
 Write-Host ""
 
@@ -99,9 +99,9 @@ Write-Host ""
 Write-Host "Prochaines étapes:" -ForegroundColor Yellow
 Write-Host ""
 Write-Host "1. Configurer PostgreSQL:" -ForegroundColor White
-Write-Host "   - Créer la base de données: CREATE DATABASE studioweb;" -ForegroundColor Gray
-Write-Host "   - Exécuter le schéma: psql -U postgres -d studioweb -f backend/database/schema.sql" -ForegroundColor Gray
-Write-Host "   - Insérer les données de test: psql -U postgres -d studioweb -f backend/database/seed.sql" -ForegroundColor Gray
+Write-Host "   - Créer la base de données: CREATE DATABASE horizonstudio;" -ForegroundColor Gray
+Write-Host "   - Exécuter le schéma: psql -U postgres -d horizonstudio -f backend/database/schema.sql" -ForegroundColor Gray
+Write-Host "   - Insérer les données de test: psql -U postgres -d horizonstudio -f backend/database/seed.sql" -ForegroundColor Gray
 Write-Host ""
 Write-Host "2. Configurer les variables d'environnement:" -ForegroundColor White
 Write-Host "   - Éditer backend/.env avec vos credentials" -ForegroundColor Gray

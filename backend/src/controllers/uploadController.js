@@ -20,7 +20,7 @@ exports.uploadImage = async (req, res) => {
   try {
     // Upload to Cloudinary
     const result = await cloudinary.uploader.upload(req.file.path, {
-      folder: 'studioweb',
+      folder: 'horizonstudio',
       resource_type: 'auto',
       transformation: [
         { width: 1920, height: 1080, crop: 'limit' },
@@ -59,7 +59,7 @@ exports.uploadMultipleImages = async (req, res) => {
   try {
     const uploadPromises = req.files.map(file =>
       cloudinary.uploader.upload(file.path, {
-        folder: 'studioweb',
+        folder: 'horizonstudio',
         resource_type: 'auto',
         transformation: [
           { width: 1920, height: 1080, crop: 'limit' },
@@ -126,7 +126,7 @@ exports.deleteImage = async (req, res) => {
  */
 exports.getUploadSignature = async (req, res) => {
   const timestamp = Math.round(new Date().getTime() / 1000);
-  const folder = 'studioweb';
+  const folder = 'horizonstudio';
   
   const signature = cloudinary.utils.api_sign_request(
     {

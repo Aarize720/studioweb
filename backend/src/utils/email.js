@@ -9,7 +9,7 @@ const logger = require('./logger');
 const transporter = nodemailer.createTransport({
   host: process.env.EMAIL_HOST,
   port: process.env.EMAIL_PORT,
-  secure: process.env.EMAIL_PORT == 465, // true pour 465, false pour les autres ports
+  secure: process.env.EMAIL_PORT === '465', // true pour 465, false pour les autres ports
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASSWORD,
@@ -41,7 +41,7 @@ const verifyEmailConfig = async () => {
 const sendEmail = async ({ to, subject, text, html }) => {
   try {
     const mailOptions = {
-      from: process.env.EMAIL_FROM || 'Studio Web <noreply@studioweb.com>',
+      from: process.env.EMAIL_FROM || 'Horizon Studio <noreply@horizonstudio.com>',
       to,
       subject,
       text,
@@ -61,7 +61,7 @@ const sendEmail = async ({ to, subject, text, html }) => {
  * Envoie un email de bienvenue
  */
 const sendWelcomeEmail = async (user) => {
-  const subject = 'Bienvenue sur Studio Web !';
+  const subject = 'Bienvenue sur Horizon Studio !';
   const html = `
     <!DOCTYPE html>
     <html>
@@ -81,7 +81,7 @@ const sendWelcomeEmail = async (user) => {
           <h1>Bienvenue ${user.first_name} !</h1>
         </div>
         <div class="content">
-          <p>Nous sommes ravis de vous accueillir sur <strong>Studio Web</strong> !</p>
+          <p>Nous sommes ravis de vous accueillir sur <strong>Horizon Studio</strong> !</p>
           <p>Votre compte a été créé avec succès. Vous pouvez maintenant accéder à tous nos services :</p>
           <ul>
             <li>Consulter notre portfolio de projets</li>
@@ -93,10 +93,10 @@ const sendWelcomeEmail = async (user) => {
             <a href="${process.env.FRONTEND_URL}/dashboard" class="button">Accéder à mon espace</a>
           </center>
           <p>Si vous avez des questions, n'hésitez pas à nous contacter.</p>
-          <p>À bientôt,<br><strong>L'équipe Studio Web</strong></p>
+          <p>À bientôt,<br><strong>L'équipe Horizon Studio</strong></p>
         </div>
         <div class="footer">
-          <p>© ${new Date().getFullYear()} Studio Web. Tous droits réservés.</p>
+          <p>© ${new Date().getFullYear()} Horizon Studio. Tous droits réservés.</p>
         </div>
       </div>
     </body>

@@ -1,12 +1,12 @@
-# 🛠️ Commandes Utiles - Studio Web Platform
+# 🛠️ Useful Commands - Horizon Studio Platform
 
-Guide de référence rapide pour toutes les commandes du projet.
+Quick reference guide for all project commands.
 
 ---
 
 ## 📦 Installation
 
-### Installation Automatique
+### Automatic Installation
 
 ```powershell
 # Windows (PowerShell)
@@ -19,7 +19,7 @@ chmod +x install.sh
 ./install.sh
 ```
 
-### Installation Manuelle
+### Manual Installation
 
 ```bash
 # Backend
@@ -33,75 +33,75 @@ npm install
 
 ---
 
-## 🗄️ Base de Données
+## 🗄️ Database
 
-### Créer la Base de Données
+### Create Database
 
 ```bash
-# Se connecter à PostgreSQL
+# Connect to PostgreSQL
 psql -U postgres
 
-# Créer la base
-CREATE DATABASE studioweb;
+# Create database
+CREATE DATABASE horizonstudio;
 
-# Quitter
+# Exit
 \q
 ```
 
-### Exécuter les Scripts SQL
+### Execute SQL Scripts
 
 ```bash
-# Schéma (tables, relations, indexes)
-psql -U postgres -d studioweb -f backend/database/schema.sql
+# Schema (tables, relations, indexes)
+psql -U postgres -d horizonstudio -f backend/database/schema.sql
 
-# Données de test
-psql -U postgres -d studioweb -f backend/database/seed.sql
+# Test data
+psql -U postgres -d horizonstudio -f backend/database/seed.sql
 ```
 
-### Commandes PostgreSQL Utiles
+### Useful PostgreSQL Commands
 
 ```bash
-# Lister les bases de données
+# List databases
 psql -U postgres -l
 
-# Se connecter à une base
-psql -U postgres -d studioweb
+# Connect to database
+psql -U postgres -d horizonstudio
 
-# Lister les tables
+# List tables
 \dt
 
-# Décrire une table
+# Describe table
 \d users
 
-# Voir les données d'une table
+# View table data
 SELECT * FROM users;
 
-# Supprimer toutes les données
+# Delete all data
 TRUNCATE TABLE users CASCADE;
 
-# Supprimer la base
-DROP DATABASE studioweb;
+# Drop database
+DROP DATABASE horizonstudio;
 ```
 
 ---
 
-## 🚀 Lancement
+## 🚀 Launch
 
-### Mode Développement
+### Development Mode
 
 ```bash
 # Backend (Terminal 1)
 cd backend
 npm run dev
-# Démarre sur http://localhost:5000
+# Starts on http://localhost:5000
 
 # Frontend (Terminal 2)
 cd frontend
 npm run dev
-# Démarre sur http://localhost:3000
+# Starts on http://localhost:3000
 ```
 
-### Mode Production
+### Production Mode
 
 ```bash
 # Backend
@@ -209,32 +209,32 @@ tail -f backend/logs/combined.log
 
 ---
 
-## 🔐 Gestion des Utilisateurs
+## 🔐 User Management
 
-### Créer un Admin via SQL
+### Create Admin via SQL
 
 ```sql
--- Se connecter à la base
-psql -U postgres -d studioweb
+-- Connect to database
+psql -U postgres -d horizonstudio
 
--- Créer un admin
+-- Create admin
 INSERT INTO users (first_name, last_name, email, password, role)
 VALUES (
   'Admin',
   'User',
-  'admin@studioweb.com',
+  'admin@horizonstudio.com',
   '$2b$10$YourHashedPasswordHere',
   'admin'
 );
 
--- Vérifier
+-- Verify
 SELECT * FROM users WHERE role = 'admin';
 ```
 
-### Hasher un Mot de Passe
+### Hash a Password
 
 ```javascript
-// Dans Node.js REPL
+// In Node.js REPL
 const bcrypt = require('bcryptjs');
 const password = 'YourPassword123!';
 const hash = bcrypt.hashSync(password, 10);
@@ -284,38 +284,38 @@ npm outdated
 
 ---
 
-## 🐳 Docker (À venir)
+## 🐳 Docker (Coming Soon)
 
 ### Build
 
 ```bash
 # Backend
-docker build -t studioweb-backend ./backend
+docker build -t horizonstudio-backend ./backend
 
 # Frontend
-docker build -t studioweb-frontend ./frontend
+docker build -t horizonstudio-frontend ./frontend
 ```
 
 ### Run
 
 ```bash
 # Backend
-docker run -p 5000:5000 studioweb-backend
+docker run -p 5000:5000 horizonstudio-backend
 
 # Frontend
-docker run -p 3000:3000 studioweb-frontend
+docker run -p 3000:3000 horizonstudio-frontend
 ```
 
 ### Docker Compose
 
 ```bash
-# Démarrer tous les services
+# Start all services
 docker-compose up
 
-# En arrière-plan
+# In background
 docker-compose up -d
 
-# Arrêter
+# Stop
 docker-compose down
 
 # Rebuild
@@ -326,59 +326,59 @@ docker-compose up --build
 
 ## 🔄 Git
 
-### Workflow de Base
+### Basic Workflow
 
 ```bash
-# Cloner le repo
-git clone https://github.com/username/studioweb.git
-cd studioweb
+# Clone repo
+git clone https://github.com/username/horizonstudio.git
+cd horizonstudio
 
-# Créer une branche
-git checkout -b feature/ma-fonctionnalite
+# Create branch
+git checkout -b feature/my-feature
 
-# Voir les changements
+# View changes
 git status
 git diff
 
-# Ajouter les fichiers
+# Add files
 git add .
 
 # Commit
-git commit -m "feat: ajout de ma fonctionnalité"
+git commit -m "feat: add my feature"
 
 # Push
-git push origin feature/ma-fonctionnalite
+git push origin feature/my-feature
 
-# Pull les derniers changements
+# Pull latest changes
 git pull origin main
 
-# Merge main dans votre branche
+# Merge main into your branch
 git merge main
 ```
 
-### Conventions de Commit
+### Commit Conventions
 
 ```bash
-# Nouvelle fonctionnalité
-git commit -m "feat: ajout du système de paiement"
+# New feature
+git commit -m "feat: add payment system"
 
-# Correction de bug
-git commit -m "fix: correction du bug de connexion"
+# Bug fix
+git commit -m "fix: fix login bug"
 
 # Documentation
-git commit -m "docs: mise à jour du README"
+git commit -m "docs: update README"
 
 # Style/Formatting
-git commit -m "style: formatage du code"
+git commit -m "style: format code"
 
 # Refactoring
-git commit -m "refactor: restructuration du controller"
+git commit -m "refactor: restructure controller"
 
 # Tests
-git commit -m "test: ajout des tests unitaires"
+git commit -m "test: add unit tests"
 
 # Performance
-git commit -m "perf: optimisation des requêtes SQL"
+git commit -m "perf: optimize SQL queries"
 ```
 
 ---
@@ -408,31 +408,31 @@ vercel --prod
 ```bash
 cd backend
 
-# Installer Heroku CLI
+# Install Heroku CLI
 # https://devcenter.heroku.com/articles/heroku-cli
 
 # Login
 heroku login
 
-# Créer une app
-heroku create studioweb-api
+# Create app
+heroku create horizonstudio-api
 
-# Ajouter PostgreSQL
+# Add PostgreSQL
 heroku addons:create heroku-postgresql:hobby-dev
 
-# Ajouter Redis
+# Add Redis
 heroku addons:create heroku-redis:hobby-dev
 
-# Configurer les variables d'environnement
+# Configure environment variables
 heroku config:set JWT_SECRET=your_secret
 
-# Déployer
+# Deploy
 git push heroku main
 
-# Voir les logs
+# View logs
 heroku logs --tail
 
-# Ouvrir l'app
+# Open app
 heroku open
 ```
 
@@ -460,20 +460,20 @@ cd frontend
 rm -rf .next
 ```
 
-### Backup Base de Données
+### Database Backup
 
 ```bash
-# Exporter la base
-pg_dump -U postgres -d studioweb > backup.sql
+# Export database
+pg_dump -U postgres -d horizonstudio > backup.sql
 
-# Importer la base
-psql -U postgres -d studioweb < backup.sql
+# Import database
+psql -U postgres -d horizonstudio < backup.sql
 
-# Exporter avec compression
-pg_dump -U postgres -d studioweb | gzip > backup.sql.gz
+# Export with compression
+pg_dump -U postgres -d horizonstudio | gzip > backup.sql.gz
 
-# Importer depuis compression
-gunzip -c backup.sql.gz | psql -U postgres -d studioweb
+# Import from compression
+gunzip -c backup.sql.gz | psql -U postgres -d horizonstudio
 ```
 
 ### Monitoring
@@ -552,7 +552,7 @@ NODE_OPTIONS='--inspect' npm run dev
 
 ## 📱 API Testing
 
-### Avec cURL
+### With cURL
 
 ```bash
 # Health check
@@ -561,17 +561,17 @@ curl http://localhost:5000/health
 # Login
 curl -X POST http://localhost:5000/api/auth/login \
   -H "Content-Type: application/json" \
-  -d '{"email":"admin@studioweb.com","password":"Admin123!"}'
+  -d '{"email":"admin@horizonstudio.com","password":"Admin123!"}'
 
-# Get products (avec token)
+# Get products (with token)
 curl http://localhost:5000/api/products \
   -H "Authorization: Bearer YOUR_TOKEN"
 ```
 
-### Avec HTTPie
+### With HTTPie
 
 ```bash
-# Installer HTTPie
+# Install HTTPie
 pip install httpie
 
 # Health check
@@ -579,7 +579,7 @@ http GET http://localhost:5000/health
 
 # Login
 http POST http://localhost:5000/api/auth/login \
-  email=admin@studioweb.com \
+  email=admin@horizonstudio.com \
   password=Admin123!
 
 # Get products
@@ -615,9 +615,9 @@ npm run analyze      # Analyser le bundle
 
 ---
 
-## 🆘 Dépannage
+## 🆘 Troubleshooting
 
-### Port déjà utilisé
+### Port already in use
 
 ```bash
 # Windows
@@ -628,10 +628,10 @@ taskkill /PID <PID> /F
 lsof -ti:5000 | xargs kill -9
 ```
 
-### Problèmes de connexion DB
+### Database connection issues
 
 ```bash
-# Vérifier que PostgreSQL est démarré
+# Check that PostgreSQL is running
 # Windows
 Get-Service postgresql*
 
@@ -642,7 +642,7 @@ sudo systemctl status postgresql
 brew services list
 ```
 
-### Problèmes de permissions
+### Permission issues
 
 ```bash
 # Linux/Mac
@@ -652,16 +652,16 @@ chmod -R 755 .
 
 ---
 
-## 📚 Ressources
+## 📚 Resources
 
-### Documentation Officielle
+### Official Documentation
 - Node.js: https://nodejs.org/docs
 - Next.js: https://nextjs.org/docs
 - PostgreSQL: https://www.postgresql.org/docs
 - Express: https://expressjs.com
 - React: https://react.dev
 
-### Outils Utiles
+### Useful Tools
 - Postman: https://www.postman.com
 - pgAdmin: https://www.pgadmin.org
 - Redis Commander: https://github.com/joeferner/redis-commander
@@ -669,5 +669,5 @@ chmod -R 755 .
 
 ---
 
-**Dernière mise à jour:** Janvier 2024  
-**Mainteneur:** Studio Web Team
+**Last updated:** January 2025  
+**Maintainer:** Horizon Studio Team

@@ -9,7 +9,7 @@ const logger = require('../utils/logger');
 const pool = new Pool({
   host: process.env.DB_HOST || 'localhost',
   port: process.env.DB_PORT || 5432,
-  database: process.env.DB_NAME || 'studioweb',
+  database: process.env.DB_NAME || 'horizonstudio',
   user: process.env.DB_USER || 'postgres',
   password: process.env.DB_PASSWORD,
   max: 20, // Nombre maximum de clients dans le pool
@@ -66,8 +66,7 @@ const query = async (text, params) => {
  */
 const getClient = async () => {
   const client = await pool.connect();
-  const query = client.query.bind(client);
-  const release = client.release.bind(client);
+  const originalRelease = client.release.bind(client);
 
   // Timeout pour éviter les connexions bloquées
   const timeout = setTimeout(() => {
@@ -77,8 +76,8 @@ const getClient = async () => {
   // Override de la méthode release
   client.release = () => {
     clearTimeout(timeout);
-    client.release = release;
-    return release();
+    client.release = originalRelease;
+    return originalRelease();
   };
 
   return client;

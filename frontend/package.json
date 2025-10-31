@@ -1,7 +1,7 @@
 {
-  "name": "studioweb-frontend",
+  "name": "horizonstudio-frontend",
   "version": "1.0.0",
-  "description": "Frontend Next.js pour Studio Web",
+  "description": "Frontend Next.js pour Horizon Studio",
   "private": true,
   "scripts": {
     "dev": "next dev",

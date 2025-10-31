@@ -24,7 +24,7 @@ export default function PortfolioPage() {
       setLoading(true);
       const params = selectedCategory !== 'all' ? { category: selectedCategory } : {};
       const response = await api.portfolio.getAll(params);
-      setProjects(response.data.projects || []);
+      setProjects(response.data.data || []);
     } catch (error) {
       console.error('Error fetching projects:', error);
       toast.error('Erreur lors du chargement des projets');

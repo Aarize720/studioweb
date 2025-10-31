@@ -46,9 +46,12 @@ export const useAuthStore = create(
           get().setAuth(user, token);
           return { success: true, user };
         } catch (error) {
+          console.error('Erreur d\'inscription détaillée:', error);
+          console.error('Response data:', error.response?.data);
+          console.error('Response status:', error.response?.status);
           return { 
             success: false, 
-            error: error.response?.data?.message || 'Erreur d\'inscription' 
+            error: error.response?.data?.message || error.message || 'Erreur d\'inscription' 
           };
         } finally {
           set({ isLoading: false });

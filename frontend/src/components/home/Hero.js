@@ -21,8 +21,8 @@ export default function Hero() {
             transition={{ duration: 0.6 }}
           >
             <h1 className="heading-1 text-white mb-6">
-              Transformez vos idées en{' '}
-              <span className="text-yellow-300">réalité digitale</span>
+              Creative Code,{' '}
+              <span className="text-yellow-300">Clear Results</span>
             </h1>
           </motion.div>
 
@@ -32,7 +32,7 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-xl text-white/90 mb-8 max-w-2xl mx-auto"
           >
-            Studio Web crée des sites web et applications sur mesure qui propulsent votre entreprise vers le succès.
+            Horizon Studio delivers professional web development, custom Discord bots, stunning UI/UX design, and powerful automation solutions tailored to your needs.
           </motion.p>
 
           <motion.div

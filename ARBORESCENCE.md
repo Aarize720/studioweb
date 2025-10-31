@@ -1,15 +1,15 @@
-# Arborescence Complète du Projet Studio Web
+# Complete Project Structure - Horizon Studio
 
-## 📁 Structure Générale
+## 📁 General Structure
 
 ```
-studioweb/
+horizonstudio/
 ├── backend/                          # Backend Node.js + Express
 ├── frontend/                         # Frontend Next.js 14
-├── README.md                         # Documentation principale
-├── ARBORESCENCE.md                   # Ce fichier
-├── install.ps1                       # Script d'installation Windows
-└── install.sh                        # Script d'installation Linux/Mac
+├── README.md                         # Main documentation
+├── ARBORESCENCE.md                   # This file
+├── install.ps1                       # Windows installation script
+└── install.sh                        # Linux/Mac installation script
 ```
 
 ## 🔧 Backend (Node.js + Express)
@@ -18,67 +18,67 @@ studioweb/
 backend/
 ├── src/
 │   ├── config/                       # Configuration
-│   │   ├── database.js              # Configuration PostgreSQL
-│   │   ├── redis.js                 # Configuration Redis (cache)
-│   │   ├── cloudinary.js            # Configuration Cloudinary
-│   │   ├── stripe.js                # Configuration Stripe
-│   │   └── paypal.js                # Configuration PayPal
+│   │   ├── database.js              # PostgreSQL configuration
+│   │   ├── redis.js                 # Redis configuration (cache)
+│   │   ├── cloudinary.js            # Cloudinary configuration
+│   │   ├── stripe.js                # Stripe configuration
+│   │   └── paypal.js                # PayPal configuration
 │   │
-│   ├── controllers/                  # Contrôleurs API
-│   │   ├── authController.js        # Authentification (login, register, OAuth)
-│   │   ├── productController.js     # Gestion des produits
-│   │   ├── blogController.js        # Gestion du blog
-│   │   ├── ticketController.js      # Système de tickets support
-│   │   ├── uploadController.js      # Upload de fichiers
-│   │   ├── statsController.js       # Statistiques et analytics
-│   │   ├── contactController.js     # Formulaire de contact
-│   │   ├── portfolioController.js   # Gestion du portfolio
-│   │   └── messageController.js     # Messagerie interne
+│   ├── controllers/                  # API Controllers
+│   │   ├── authController.js        # Authentication (login, register, OAuth)
+│   │   ├── productController.js     # Product management
+│   │   ├── blogController.js        # Blog management
+│   │   ├── ticketController.js      # Support ticket system
+│   │   ├── uploadController.js      # File upload
+│   │   ├── statsController.js       # Statistics and analytics
+│   │   ├── contactController.js     # Contact form
+│   │   ├── portfolioController.js   # Portfolio management
+│   │   └── messageController.js     # Internal messaging
 │   │
 │   ├── middleware/                   # Middlewares
-│   │   ├── auth.js                  # Authentification JWT
-│   │   ├── errorHandler.js          # Gestion des erreurs
+│   │   ├── auth.js                  # JWT authentication
+│   │   ├── errorHandler.js          # Error handling
 │   │   ├── rateLimiter.js           # Rate limiting
-│   │   ├── upload.js                # Multer pour uploads
-│   │   └── validation.js            # Validation des données
+│   │   ├── upload.js                # Multer for uploads
+│   │   └── validation.js            # Data validation
 │   │
-│   ├── routes/                       # Routes API
-│   │   ├── auth.js                  # Routes authentification
-│   │   ├── users.js                 # Routes utilisateurs
-│   │   ├── products.js              # Routes produits
-│   │   ├── orders.js                # Routes commandes
-│   │   ├── services.js              # Routes services
-│   │   ├── portfolio.js             # Routes portfolio
-│   │   ├── blog.js                  # Routes blog
-│   │   ├── tickets.js               # Routes tickets
-│   │   ├── messages.js              # Routes messages
-│   │   ├── upload.js                # Routes upload
-│   │   ├── stats.js                 # Routes statistiques
-│   │   └── contact.js               # Routes contact
+│   ├── routes/                       # API Routes
+│   │   ├── auth.js                  # Authentication routes
+│   │   ├── users.js                 # User routes
+│   │   ├── products.js              # Product routes
+│   │   ├── orders.js                # Order routes
+│   │   ├── services.js              # Service routes
+│   │   ├── portfolio.js             # Portfolio routes
+│   │   ├── blog.js                  # Blog routes
+│   │   ├── tickets.js               # Ticket routes
+│   │   ├── messages.js              # Message routes
+│   │   ├── upload.js                # Upload routes
+│   │   ├── stats.js                 # Statistics routes
+│   │   └── contact.js               # Contact routes
 │   │
-│   ├── utils/                        # Utilitaires
-│   │   ├── appError.js              # Classe d'erreur personnalisée
-│   │   ├── email.js                 # Envoi d'emails (Nodemailer)
+│   ├── utils/                        # Utilities
+│   │   ├── appError.js              # Custom error class
+│   │   ├── email.js                 # Email sending (Nodemailer)
 │   │   ├── logger.js                # Logger (Winston)
-│   │   └── helpers.js               # Fonctions utilitaires
+│   │   └── helpers.js               # Utility functions
 │   │
-│   ├── validators/                   # Validation Joi
-│   │   ├── authValidator.js         # Validation auth
-│   │   ├── productValidator.js      # Validation produits
-│   │   ├── orderValidator.js        # Validation commandes
-│   │   └── ...                      # Autres validateurs
+│   ├── validators/                   # Joi Validation
+│   │   ├── authValidator.js         # Auth validation
+│   │   ├── productValidator.js      # Product validation
+│   │   ├── orderValidator.js        # Order validation
+│   │   └── ...                      # Other validators
 │   │
-│   └── server.js                     # Point d'entrée principal
+│   └── server.js                     # Main entry point
 │
-├── database/                         # Base de données
-│   ├── schema.sql                   # Schéma PostgreSQL complet
-│   └── seed.sql                     # Données de test
+├── database/                         # Database
+│   ├── schema.sql                   # Complete PostgreSQL schema
+│   └── seed.sql                     # Test data
 │
-├── uploads/                          # Fichiers uploadés localement
-├── logs/                            # Logs de l'application
-├── .env.example                     # Exemple de variables d'environnement
-├── .gitignore                       # Fichiers à ignorer par Git
-└── package.json                     # Dépendances backend
+├── uploads/                          # Locally uploaded files
+├── logs/                            # Application logs
+├── .env.example                     # Environment variables example
+├── .gitignore                       # Files to ignore by Git
+└── package.json                     # Backend dependencies
 ```
 
 ## 🎨 Frontend (Next.js 14)
@@ -86,224 +86,224 @@ backend/
 ```
 frontend/
 ├── src/
-│   ├── app/                          # Pages Next.js (App Router)
-│   │   ├── layout.js                # Layout principal
-│   │   ├── page.js                  # Page d'accueil
-│   │   ├── globals.css              # Styles globaux
+│   ├── app/                          # Next.js Pages (App Router)
+│   │   ├── layout.js                # Main layout
+│   │   ├── page.js                  # Homepage
+│   │   ├── globals.css              # Global styles
 │   │   │
-│   │   ├── auth/                    # Pages d'authentification
+│   │   ├── auth/                    # Authentication pages
 │   │   │   ├── login/
-│   │   │   │   └── page.js         # Page de connexion
+│   │   │   │   └── page.js         # Login page
 │   │   │   ├── register/
-│   │   │   │   └── page.js         # Page d'inscription
+│   │   │   │   └── page.js         # Registration page
 │   │   │   └── forgot-password/
-│   │   │       └── page.js         # Mot de passe oublié
+│   │   │       └── page.js         # Forgot password
 │   │   │
-│   │   ├── services/                # Pages services
-│   │   │   ├── page.js             # Liste des services
+│   │   ├── services/                # Services pages
+│   │   │   ├── page.js             # Services list
 │   │   │   └── [slug]/
-│   │   │       └── page.js         # Détail d'un service
+│   │   │       └── page.js         # Service detail
 │   │   │
-│   │   ├── portfolio/               # Pages portfolio
-│   │   │   ├── page.js             # Liste des projets
+│   │   ├── portfolio/               # Portfolio pages
+│   │   │   ├── page.js             # Projects list
 │   │   │   └── [slug]/
-│   │   │       └── page.js         # Détail d'un projet
+│   │   │       └── page.js         # Project detail
 │   │   │
-│   │   ├── shop/                    # Pages boutique
-│   │   │   ├── page.js             # Liste des produits
+│   │   ├── shop/                    # Shop pages
+│   │   │   ├── page.js             # Products list
 │   │   │   ├── cart/
-│   │   │   │   └── page.js         # Panier
+│   │   │   │   └── page.js         # Cart
 │   │   │   ├── checkout/
-│   │   │   │   └── page.js         # Paiement
+│   │   │   │   └── page.js         # Checkout
 │   │   │   └── [slug]/
-│   │   │       └── page.js         # Détail produit
+│   │   │       └── page.js         # Product detail
 │   │   │
-│   │   ├── blog/                    # Pages blog
-│   │   │   ├── page.js             # Liste des articles
+│   │   ├── blog/                    # Blog pages
+│   │   │   ├── page.js             # Articles list
 │   │   │   ├── category/
 │   │   │   │   └── [slug]/
-│   │   │   │       └── page.js     # Articles par catégorie
+│   │   │   │       └── page.js     # Articles by category
 │   │   │   └── [slug]/
-│   │   │       └── page.js         # Détail article
+│   │   │       └── page.js         # Article detail
 │   │   │
-│   │   ├── contact/                 # Page de contact
+│   │   ├── contact/                 # Contact page
 │   │   │   └── page.js
 │   │   │
-│   │   ├── dashboard/               # Espace client
-│   │   │   ├── page.js             # Dashboard principal
+│   │   ├── dashboard/               # Client area
+│   │   │   ├── page.js             # Main dashboard
 │   │   │   ├── profile/
-│   │   │   │   └── page.js         # Profil utilisateur
+│   │   │   │   └── page.js         # User profile
 │   │   │   ├── orders/
-│   │   │   │   ├── page.js         # Liste des commandes
+│   │   │   │   ├── page.js         # Orders list
 │   │   │   │   └── [id]/
-│   │   │   │       └── page.js     # Détail commande
+│   │   │   │       └── page.js     # Order detail
 │   │   │   ├── tickets/
-│   │   │   │   ├── page.js         # Liste des tickets
+│   │   │   │   ├── page.js         # Tickets list
 │   │   │   │   └── [id]/
-│   │   │   │       └── page.js     # Détail ticket
+│   │   │   │       └── page.js     # Ticket detail
 │   │   │   └── messages/
-│   │   │       ├── page.js         # Messagerie
+│   │   │       ├── page.js         # Messaging
 │   │   │       └── [id]/
 │   │   │           └── page.js     # Conversation
 │   │   │
-│   │   └── admin/                   # Dashboard admin
-│   │       ├── page.js             # Dashboard principal
+│   │   └── admin/                   # Admin dashboard
+│   │       ├── page.js             # Main dashboard
 │   │       ├── users/
-│   │       │   └── page.js         # Gestion utilisateurs
+│   │       │   └── page.js         # User management
 │   │       ├── products/
-│   │       │   └── page.js         # Gestion produits
+│   │       │   └── page.js         # Product management
 │   │       ├── orders/
-│   │       │   └── page.js         # Gestion commandes
+│   │       │   └── page.js         # Order management
 │   │       ├── services/
-│   │       │   └── page.js         # Gestion services
+│   │       │   └── page.js         # Service management
 │   │       ├── portfolio/
-│   │       │   └── page.js         # Gestion portfolio
+│   │       │   └── page.js         # Portfolio management
 │   │       ├── blog/
-│   │       │   └── page.js         # Gestion blog
+│   │       │   └── page.js         # Blog management
 │   │       ├── tickets/
-│   │       │   └── page.js         # Gestion tickets
+│   │       │   └── page.js         # Ticket management
 │   │       └── stats/
-│   │           └── page.js         # Statistiques
+│   │           └── page.js         # Statistics
 │   │
-│   ├── components/                   # Composants React
-│   │   ├── layout/                  # Composants de layout
-│   │   │   ├── Navbar.js           # Barre de navigation
-│   │   │   ├── Footer.js           # Pied de page
-│   │   │   └── Sidebar.js          # Barre latérale (dashboard)
+│   ├── components/                   # React Components
+│   │   ├── layout/                  # Layout components
+│   │   │   ├── Navbar.js           # Navigation bar
+│   │   │   ├── Footer.js           # Footer
+│   │   │   └── Sidebar.js          # Sidebar (dashboard)
 │   │   │
-│   │   ├── home/                    # Composants page d'accueil
-│   │   │   ├── Hero.js             # Section hero
-│   │   │   ├── Services.js         # Section services
-│   │   │   ├── Portfolio.js        # Section portfolio
-│   │   │   ├── Testimonials.js     # Témoignages
-│   │   │   ├── Stats.js            # Statistiques
+│   │   ├── home/                    # Homepage components
+│   │   │   ├── Hero.js             # Hero section
+│   │   │   ├── Services.js         # Services section
+│   │   │   ├── Portfolio.js        # Portfolio section
+│   │   │   ├── Testimonials.js     # Testimonials
+│   │   │   ├── Stats.js            # Statistics
 │   │   │   └── CTA.js              # Call-to-action
 │   │   │
-│   │   ├── common/                  # Composants communs
-│   │   │   ├── Button.js           # Bouton
-│   │   │   ├── Input.js            # Champ de saisie
-│   │   │   ├── Card.js             # Carte
+│   │   ├── common/                  # Common components
+│   │   │   ├── Button.js           # Button
+│   │   │   ├── Input.js            # Input field
+│   │   │   ├── Card.js             # Card
 │   │   │   ├── Modal.js            # Modal
 │   │   │   ├── Loader.js           # Loader
 │   │   │   ├── Pagination.js       # Pagination
 │   │   │   └── Badge.js            # Badge
 │   │   │
-│   │   ├── shop/                    # Composants boutique
-│   │   │   ├── ProductCard.js      # Carte produit
-│   │   │   ├── ProductGrid.js      # Grille de produits
-│   │   │   ├── CartItem.js         # Item du panier
-│   │   │   └── CheckoutForm.js     # Formulaire de paiement
+│   │   ├── shop/                    # Shop components
+│   │   │   ├── ProductCard.js      # Product card
+│   │   │   ├── ProductGrid.js      # Product grid
+│   │   │   ├── CartItem.js         # Cart item
+│   │   │   └── CheckoutForm.js     # Checkout form
 │   │   │
-│   │   ├── dashboard/               # Composants dashboard
-│   │   │   ├── StatsCard.js        # Carte de statistique
-│   │   │   ├── OrderTable.js       # Tableau des commandes
-│   │   │   ├── TicketList.js       # Liste des tickets
-│   │   │   └── Chart.js            # Graphiques
+│   │   ├── dashboard/               # Dashboard components
+│   │   │   ├── StatsCard.js        # Statistics card
+│   │   │   ├── OrderTable.js       # Orders table
+│   │   │   ├── TicketList.js       # Tickets list
+│   │   │   └── Chart.js            # Charts
 │   │   │
 │   │   └── Providers.js             # Providers (React Query, etc.)
 │   │
-│   ├── lib/                          # Bibliothèques et utilitaires
-│   │   ├── api.js                   # Configuration Axios + API calls
-│   │   ├── utils.js                 # Fonctions utilitaires
-│   │   └── socket.js                # Configuration Socket.io
+│   ├── lib/                          # Libraries and utilities
+│   │   ├── api.js                   # Axios configuration + API calls
+│   │   ├── utils.js                 # Utility functions
+│   │   └── socket.js                # Socket.io configuration
 │   │
-│   ├── store/                        # État global (Zustand)
-│   │   ├── authStore.js             # Store authentification
-│   │   ├── cartStore.js             # Store panier
-│   │   └── notificationStore.js     # Store notifications
+│   ├── store/                        # Global state (Zustand)
+│   │   ├── authStore.js             # Authentication store
+│   │   ├── cartStore.js             # Cart store
+│   │   └── notificationStore.js     # Notifications store
 │   │
-│   └── hooks/                        # Hooks personnalisés
-│       ├── useAuth.js               # Hook authentification
-│       ├── useCart.js               # Hook panier
-│       └── useSocket.js             # Hook WebSocket
+│   └── hooks/                        # Custom hooks
+│       ├── useAuth.js               # Authentication hook
+│       ├── useCart.js               # Cart hook
+│       └── useSocket.js             # WebSocket hook
 │
-├── public/                           # Assets statiques
+├── public/                           # Static assets
 │   ├── images/                      # Images
-│   ├── icons/                       # Icônes
+│   ├── icons/                       # Icons
 │   └── favicon.ico                  # Favicon
 │
-├── .env.example                      # Exemple de variables d'environnement
-├── .gitignore                        # Fichiers à ignorer par Git
-├── next.config.js                    # Configuration Next.js
-├── tailwind.config.js                # Configuration Tailwind CSS
-├── postcss.config.js                 # Configuration PostCSS
-└── package.json                      # Dépendances frontend
+├── .env.example                      # Environment variables example
+├── .gitignore                        # Files to ignore by Git
+├── next.config.js                    # Next.js configuration
+├── tailwind.config.js                # Tailwind CSS configuration
+├── postcss.config.js                 # PostCSS configuration
+└── package.json                      # Frontend dependencies
 ```
 
-## 📊 Base de Données (PostgreSQL)
+## 📊 Database (PostgreSQL)
 
-### Tables Principales
+### Main Tables
 
-1. **users** - Utilisateurs et administrateurs
-2. **refresh_tokens** - Tokens de rafraîchissement JWT
-3. **services** - Services proposés
-4. **service_quotes** - Demandes de devis
-5. **products** - Produits de la boutique
-6. **cart_items** - Paniers d'achat
-7. **orders** - Commandes
-8. **order_items** - Détails des commandes
-9. **portfolio** - Projets portfolio
-10. **portfolio_images** - Images des projets
-11. **blog_categories** - Catégories du blog
-12. **blog_tags** - Tags du blog
-13. **blog_posts** - Articles de blog
-14. **blog_post_tags** - Relation articles-tags
-15. **testimonials** - Témoignages clients
-16. **tickets** - Tickets de support
-17. **ticket_messages** - Messages des tickets
-18. **messages** - Messagerie interne
-19. **contact_messages** - Messages du formulaire de contact
+1. **users** - Users and administrators
+2. **refresh_tokens** - JWT refresh tokens
+3. **services** - Services offered
+4. **service_quotes** - Quote requests
+5. **products** - Shop products
+6. **cart_items** - Shopping carts
+7. **orders** - Orders
+8. **order_items** - Order details
+9. **portfolio** - Portfolio projects
+10. **portfolio_images** - Project images
+11. **blog_categories** - Blog categories
+12. **blog_tags** - Blog tags
+13. **blog_posts** - Blog articles
+14. **blog_post_tags** - Articles-tags relation
+15. **testimonials** - Client testimonials
+16. **tickets** - Support tickets
+17. **ticket_messages** - Ticket messages
+18. **messages** - Internal messaging
+19. **contact_messages** - Contact form messages
 
-## 🔑 Fichiers de Configuration Importants
+## 🔑 Important Configuration Files
 
 ### Backend
-- **`.env`** - Variables d'environnement (DB, API keys, etc.)
-- **`package.json`** - Dépendances et scripts npm
-- **`server.js`** - Point d'entrée de l'application
+- **`.env`** - Environment variables (DB, API keys, etc.)
+- **`package.json`** - Dependencies and npm scripts
+- **`server.js`** - Application entry point
 
 ### Frontend
-- **`.env.local`** - Variables d'environnement frontend
-- **`next.config.js`** - Configuration Next.js
-- **`tailwind.config.js`** - Configuration Tailwind CSS
-- **`package.json`** - Dépendances et scripts npm
+- **`.env.local`** - Frontend environment variables
+- **`next.config.js`** - Next.js configuration
+- **`tailwind.config.js`** - Tailwind CSS configuration
+- **`package.json`** - Dependencies and npm scripts
 
-## 📦 Dépendances Principales
+## 📦 Main Dependencies
 
 ### Backend
-- **express** - Framework web
-- **pg** - Client PostgreSQL
-- **redis** - Client Redis
-- **jsonwebtoken** - Authentification JWT
-- **bcryptjs** - Hashage des mots de passe
-- **joi** - Validation des données
-- **nodemailer** - Envoi d'emails
-- **cloudinary** - Stockage de médias
-- **stripe** - Paiements
-- **socket.io** - WebSocket temps réel
-- **helmet** - Sécurité HTTP
+- **express** - Web framework
+- **pg** - PostgreSQL client
+- **redis** - Redis client
+- **jsonwebtoken** - JWT authentication
+- **bcryptjs** - Password hashing
+- **joi** - Data validation
+- **nodemailer** - Email sending
+- **cloudinary** - Media storage
+- **stripe** - Payments
+- **socket.io** - Real-time WebSocket
+- **helmet** - HTTP security
 - **cors** - CORS
-- **morgan** - Logger HTTP
-- **winston** - Logger applicatif
+- **morgan** - HTTP logger
+- **winston** - Application logger
 
 ### Frontend
-- **next** - Framework React
-- **react** - Bibliothèque UI
-- **tailwindcss** - Framework CSS
+- **next** - React framework
+- **react** - UI library
+- **tailwindcss** - CSS framework
 - **framer-motion** - Animations
-- **axios** - Client HTTP
-- **react-query** - Gestion état serveur
-- **zustand** - Gestion état global
-- **react-hook-form** - Gestion des formulaires
+- **axios** - HTTP client
+- **react-query** - Server state management
+- **zustand** - Global state management
+- **react-hook-form** - Form management
 - **react-hot-toast** - Notifications
-- **socket.io-client** - Client WebSocket
-- **stripe** - Intégration Stripe
-- **recharts** - Graphiques
+- **socket.io-client** - WebSocket client
+- **stripe** - Stripe integration
+- **recharts** - Charts
 
-## 🚀 Scripts NPM
+## 🚀 NPM Scripts
 
 ### Backend
 ```bash
-npm run dev          # Développement avec nodemon
+npm run dev          # Development with nodemon
 npm start            # Production
 npm test             # Tests
 npm run lint         # Linter
@@ -311,19 +311,19 @@ npm run lint         # Linter
 
 ### Frontend
 ```bash
-npm run dev          # Développement
-npm run build        # Build production
-npm start            # Serveur production
+npm run dev          # Development
+npm run build        # Production build
+npm start            # Production server
 npm run lint         # Linter
 ```
 
 ## 📝 Notes
 
-- Tous les fichiers sont commentés en français
-- Le code suit les conventions ES6+
-- Architecture modulaire et scalable
-- Sécurité renforcée (JWT, bcrypt, helmet, rate limiting)
+- All files are well documented
+- Code follows ES6+ conventions
+- Modular and scalable architecture
+- Enhanced security (JWT, bcrypt, helmet, rate limiting)
 - Responsive design (mobile-first)
-- SEO optimisé
-- Performance optimisée (lazy loading, code splitting)
-- Accessibilité (ARIA labels, semantic HTML)
+- SEO optimized
+- Performance optimized (lazy loading, code splitting)
+- Accessibility (ARIA labels, semantic HTML)

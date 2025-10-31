@@ -42,7 +42,7 @@ export default function DashboardPage() {
 
       // Calculate stats
       const orders = ordersResponse.data.orders || [];
-      const totalSpent = orders.reduce((sum, order) => sum + parseFloat(order.total_amount || 0), 0);
+      const totalSpent = orders.reduce((sum, order) => sum + parseFloat(order.total || 0), 0);
       const pendingOrders = orders.filter(o => o.status === 'pending').length;
       const openTickets = (ticketsResponse.data.tickets || []).filter(t => t.status === 'open').length;
 
@@ -205,7 +205,7 @@ export default function DashboardPage() {
                       {formatDate(order.created_at)}
                     </td>
                     <td className="py-3 px-4 font-semibold text-gray-900">
-                      {formatCurrency(order.total_amount)}
+                      {formatCurrency(order.total)}
                     </td>
                     <td className="py-3 px-4">
                       <span className={`badge ${getStatusColor(order.status)}`}>

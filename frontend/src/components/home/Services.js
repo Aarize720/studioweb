@@ -2,44 +2,45 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { FiCode, FiSmartphone, FiShoppingCart, FiLayout, FiSearch, FiTrendingUp } from 'react-icons/fi';
+import { FiCode, FiLayout, FiZap, FiTrendingUp, FiMessageSquare } from 'react-icons/fi';
+import { SiDiscord } from 'react-icons/si';
 
 const services = [
   {
     icon: FiCode,
-    title: 'Développement Web',
-    description: 'Sites web sur mesure, performants et responsive, adaptés à vos besoins spécifiques.',
+    title: 'Web Development',
+    description: 'Custom websites and web applications with modern front-end (React, Vue, Next.js) and robust back-end (Node.js, Java, PHP) development.',
     color: 'from-blue-500 to-cyan-500',
   },
   {
-    icon: FiSmartphone,
-    title: 'Applications Mobiles',
-    description: 'Applications iOS et Android natives ou hybrides pour une expérience utilisateur optimale.',
+    icon: SiDiscord,
+    title: 'Discord Bot Development',
+    description: 'Custom Discord bots for management, moderation, tickets, and automation with secure hosting and dashboards.',
     color: 'from-purple-500 to-pink-500',
-  },
-  {
-    icon: FiShoppingCart,
-    title: 'E-commerce',
-    description: 'Boutiques en ligne complètes avec gestion des paiements et des stocks.',
-    color: 'from-orange-500 to-red-500',
   },
   {
     icon: FiLayout,
     title: 'UI/UX Design',
-    description: 'Interfaces modernes et intuitives pour une expérience utilisateur exceptionnelle.',
+    description: 'Beautiful interface design for web apps and dashboards with responsive, accessible layouts and brand identity.',
     color: 'from-green-500 to-emerald-500',
   },
   {
-    icon: FiSearch,
-    title: 'SEO & Marketing',
-    description: 'Optimisation pour les moteurs de recherche et stratégies marketing digitales.',
+    icon: FiZap,
+    title: 'Automation & Integrations',
+    description: 'API integration, workflow automation, and seamless connections with Stripe, Discord, Google Cloud, and more.',
     color: 'from-yellow-500 to-amber-500',
   },
   {
     icon: FiTrendingUp,
-    title: 'Consulting',
-    description: 'Conseil stratégique pour votre transformation digitale et votre croissance.',
+    title: 'Consulting & Support',
+    description: 'Technical architecture consulting, code review, performance auditing, and long-term maintenance.',
     color: 'from-indigo-500 to-purple-500',
+  },
+  {
+    icon: FiMessageSquare,
+    title: 'Client Training',
+    description: 'Comprehensive onboarding and training to help you make the most of your digital solutions.',
+    color: 'from-orange-500 to-red-500',
   },
 ];
 
@@ -53,9 +54,9 @@ export default function Services() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="heading-2 mb-4">Nos Services</h2>
+          <h2 className="heading-2 mb-4">Our Services</h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Des solutions complètes pour tous vos besoins digitaux
+            Complete digital solutions for all your development needs
           </p>
         </motion.div>
 
@@ -80,7 +81,7 @@ export default function Services() {
                   href="/services"
                   className="text-primary-600 font-medium inline-flex items-center group-hover:gap-2 transition-all"
                 >
-                  En savoir plus
+                  Learn more
                   <span className="ml-1 group-hover:translate-x-1 transition-transform">→</span>
                 </Link>
               </motion.div>
@@ -95,7 +96,7 @@ export default function Services() {
           className="text-center mt-12"
         >
           <Link href="/services" className="btn btn-primary">
-            Voir tous nos services
+            View all services
           </Link>
         </motion.div>
       </div>

@@ -7,7 +7,7 @@ const testimonials = [
   {
     name: 'Marie Dubois',
     role: 'CEO, TechStart',
-    content: 'Studio Web a transformé notre vision en une plateforme web exceptionnelle. Leur expertise et leur professionnalisme sont remarquables.',
+    content: 'Horizon Studio a transformé notre vision en une plateforme web exceptionnelle. Leur expertise et leur professionnalisme sont remarquables.',
     rating: 5,
     avatar: null,
   },

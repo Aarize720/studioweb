@@ -1,4 +1,4 @@
--- Studio Web Database Seed Data
+-- Horizon Studio Database Seed Data
 -- Test data for development
 
 -- Clear existing data
@@ -8,11 +8,11 @@ TRUNCATE TABLE messages, ticket_messages, tickets, testimonials, blog_post_tags,
 -- Password for all users: Admin123! or Client123!
 -- Hashed with bcrypt (10 rounds)
 INSERT INTO users (id, email, password, first_name, last_name, phone, role, is_active, is_verified, created_at) VALUES
-('a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11', 'admin@studioweb.com', '$2a$10$rKvVLZ8Z8Z8Z8Z8Z8Z8Z8OqGqGqGqGqGqGqGqGqGqGqGqGqGqGqGq', 'Admin', 'Studio', '+33612345678', 'super_admin', true, true, NOW() - INTERVAL '6 months'),
-('b1eebc99-9c0b-4ef8-bb6d-6bb9bd380a12', 'manager@studioweb.com', '$2a$10$rKvVLZ8Z8Z8Z8Z8Z8Z8Z8OqGqGqGqGqGqGqGqGqGqGqGqGqGqGqGq', 'Marie', 'Dupont', '+33623456789', 'admin', true, true, NOW() - INTERVAL '5 months'),
-('c2eebc99-9c0b-4ef8-bb6d-6bb9bd380a13', 'client@example.com', '$2a$10$rKvVLZ8Z8Z8Z8Z8Z8Z8Z8OqGqGqGqGqGqGqGqGqGqGqGqGqGqGqGq', 'Jean', 'Martin', '+33634567890', 'client', true, true, NOW() - INTERVAL '3 months'),
-('d3eebc99-9c0b-4ef8-bb6d-6bb9bd380a14', 'sophie@example.com', '$2a$10$rKvVLZ8Z8Z8Z8Z8Z8Z8Z8OqGqGqGqGqGqGqGqGqGqGqGqGqGqGqGq', 'Sophie', 'Bernard', '+33645678901', 'client', true, true, NOW() - INTERVAL '2 months'),
-('e4eebc99-9c0b-4ef8-bb6d-6bb9bd380a15', 'pierre@example.com', '$2a$10$rKvVLZ8Z8Z8Z8Z8Z8Z8Z8OqGqGqGqGqGqGqGqGqGqGqGqGqGqGqGq', 'Pierre', 'Dubois', '+33656789012', 'client', true, true, NOW() - INTERVAL '1 month');
+('a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11', 'admin@horizonstudio.com', '$2a$10$IlZKFwT5IoMrIoHSN9Otq..WP6Y6GqzITRT2QHa6YhIdoW0mZ0SNK', 'Admin', 'Horizon', '+33612345678', 'super_admin', true, true, NOW() - INTERVAL '6 months'),
+('b1eebc99-9c0b-4ef8-bb6d-6bb9bd380a12', 'manager@horizonstudio.com', '$2a$10$IlZKFwT5IoMrIoHSN9Otq..WP6Y6GqzITRT2QHa6YhIdoW0mZ0SNK', 'Marie', 'Dupont', '+33623456789', 'admin', true, true, NOW() - INTERVAL '5 months'),
+('c2eebc99-9c0b-4ef8-bb6d-6bb9bd380a13', 'client@example.com', '$2a$10$J1pY/k1T9GmUjHbwMwbQdOPOJXxkisfThAC2/yG3oegIDwtJ1U8ti', 'Jean', 'Martin', '+33634567890', 'client', true, true, NOW() - INTERVAL '3 months'),
+('d3eebc99-9c0b-4ef8-bb6d-6bb9bd380a14', 'sophie@example.com', '$2a$10$J1pY/k1T9GmUjHbwMwbQdOPOJXxkisfThAC2/yG3oegIDwtJ1U8ti', 'Sophie', 'Bernard', '+33645678901', 'client', true, true, NOW() - INTERVAL '2 months'),
+('e4eebc99-9c0b-4ef8-bb6d-6bb9bd380a15', 'pierre@example.com', '$2a$10$J1pY/k1T9GmUjHbwMwbQdOPOJXxkisfThAC2/yG3oegIDwtJ1U8ti', 'Pierre', 'Dubois', '+33656789012', 'client', true, true, NOW() - INTERVAL '1 month');
 
 -- Insert Services
 INSERT INTO services (id, name, slug, description, short_description, icon, price_starting, price_type, features, is_active, display_order) VALUES
@@ -302,12 +302,12 @@ INSERT INTO ticket_messages (ticket_id, user_id, message) VALUES
 -- Insert Messages
 INSERT INTO messages (sender_id, recipient_id, subject, message, is_read) VALUES
 ('a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11', 'c2eebc99-9c0b-4ef8-bb6d-6bb9bd380a13',
-'Bienvenue sur Studio Web', 
+'Bienvenue sur Horizon Studio', 
 'Bonjour Jean, bienvenue sur notre plateforme ! N''hésitez pas à nous contacter si vous avez des questions.',
 true),
 
 ('c2eebc99-9c0b-4ef8-bb6d-6bb9bd380a13', 'a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11',
-'Re: Bienvenue sur Studio Web',
+'Re: Bienvenue sur Horizon Studio',
 'Merci beaucoup ! Très content de travailler avec vous.',
 false);
 
@@ -315,6 +315,6 @@ false);
 DO $$
 BEGIN
     RAISE NOTICE 'Seed data inserted successfully!';
-    RAISE NOTICE 'Admin login: admin@studioweb.com / Admin123!';
+    RAISE NOTICE 'Admin login: admin@horizonstudio.com / Admin123!';
     RAISE NOTICE 'Client login: client@example.com / Client123!';
 END $$;

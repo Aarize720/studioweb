@@ -1,0 +1,53 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Environment variables
+.env
+.env.local
+.env.production
+
+# Next.js build output
+.next/
+out/
+build/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Uploads
+uploads/*
+!uploads/.gitkeep
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
+
+# Documentation temporaire (garder seulement les fichiers principaux)
+CORRECTIFS_APPLIQUES.md
+CORRECTIONS_APPLIQUEES.md
+README_CORRECTIFS.md
+RESUME_FINAL.md
+VERIFICATION_COMPLETE.md
+TEST_VERIFICATION.md
+REBRANDING_COMPLETE.md
+HORIZON_STUDIO_COMPLETE.md
+QUICK_START.md
+IDENTIFIANTS_TEST.md

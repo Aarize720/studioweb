@@ -22,7 +22,7 @@ export default function ServicesPage() {
     try {
       setLoading(true);
       const response = await api.services.getAll();
-      setServices(response.data || []);
+      setServices(response.data.data || []);
     } catch (error) {
       console.error('Error fetching services:', error);
       toast.error('Erreur lors du chargement des services');

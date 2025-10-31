@@ -1,10 +1,10 @@
-# 🚀 Guide de Démarrage Rapide - Studio Web
+# 🚀 Quick Start Guide - Horizon Studio
 
-Ce guide vous permettra de lancer l'application en moins de 10 minutes.
+This guide will help you launch the application in less than 10 minutes.
 
-## ⚡ Installation Rapide
+## ⚡ Quick Installation
 
-### Option 1: Script Automatique (Recommandé)
+### Option 1: Automatic Script (Recommended)
 
 #### Windows (PowerShell)
 ```powershell
@@ -17,60 +17,60 @@ chmod +x install.sh
 ./install.sh
 ```
 
-### Option 2: Installation Manuelle
+### Option 2: Manual Installation
 
 ```bash
-# 1. Installer les dépendances backend
+# 1. Install backend dependencies
 cd backend
 npm install
 
-# 2. Installer les dépendances frontend
+# 2. Install frontend dependencies
 cd ../frontend
 npm install
 ```
 
-## 🗄️ Configuration de la Base de Données
+## 🗄️ Database Configuration
 
-### 1. Créer la base de données
+### 1. Create database
 
 ```bash
-# Se connecter à PostgreSQL
+# Connect to PostgreSQL
 psql -U postgres
 
-# Créer la base
-CREATE DATABASE studioweb;
+# Create database
+CREATE DATABASE horizonstudio;
 
-# Quitter
+# Exit
 \q
 ```
 
-### 2. Exécuter les scripts SQL
+### 2. Execute SQL scripts
 
 ```bash
-# Créer les tables
-psql -U postgres -d studioweb -f backend/database/schema.sql
+# Create tables
+psql -U postgres -d horizonstudio -f backend/database/schema.sql
 
-# Insérer les données de test
-psql -U postgres -d studioweb -f backend/database/seed.sql
+# Insert test data
+psql -U postgres -d horizonstudio -f backend/database/seed.sql
 ```
 
-## ⚙️ Configuration Minimale
+## ⚙️ Minimal Configuration
 
 ### Backend (.env)
 
-Créer `backend/.env` avec au minimum :
+Create `backend/.env` with at minimum:
 
 ```env
 # Database
 DB_HOST=localhost
 DB_PORT=5432
-DB_NAME=studioweb
+DB_NAME=horizonstudio
 DB_USER=postgres
-DB_PASSWORD=votre_mot_de_passe
+DB_PASSWORD=your_password
 
 # JWT
-JWT_SECRET=changez_moi_secret_super_securise_123456
-JWT_REFRESH_SECRET=changez_moi_refresh_secret_123456
+JWT_SECRET=change_me_super_secure_secret_123456
+JWT_REFRESH_SECRET=change_me_refresh_secret_123456
 
 # Server
 PORT=5000
@@ -79,14 +79,14 @@ FRONTEND_URL=http://localhost:3000
 
 ### Frontend (.env.local)
 
-Créer `frontend/.env.local` avec :
+Create `frontend/.env.local` with:
 
 ```env
 NEXT_PUBLIC_API_URL=http://localhost:5000/api
 NEXT_PUBLIC_SOCKET_URL=http://localhost:5000
 ```
 
-## 🎯 Lancer l'Application
+## 🎯 Launch Application
 
 ### Terminal 1 - Backend
 ```bash
@@ -94,7 +94,7 @@ cd backend
 npm run dev
 ```
 
-Le backend démarre sur **http://localhost:5000**
+Backend starts on **http://localhost:5000**
 
 ### Terminal 2 - Frontend
 ```bash
@@ -102,40 +102,40 @@ cd frontend
 npm run dev
 ```
 
-Le frontend démarre sur **http://localhost:3000**
+Frontend starts on **http://localhost:3000**
 
-## 🔐 Comptes de Test
+## 🔐 Test Accounts
 
-### Administrateur
-- **Email:** admin@studioweb.com
-- **Mot de passe:** Admin123!
-- **Accès:** Dashboard admin complet
+### Administrator
+- **Email:** admin@horizonstudio.com
+- **Password:** Admin123!
+- **Access:** Complete admin dashboard
 
 ### Client
 - **Email:** client@example.com
-- **Mot de passe:** Client123!
-- **Accès:** Espace client
+- **Password:** Client123!
+- **Access:** Client area
 
-## 📍 URLs Importantes
+## 📍 Important URLs
 
 | Service | URL | Description |
 |---------|-----|-------------|
-| **Frontend** | http://localhost:3000 | Site web principal |
-| **Backend API** | http://localhost:5000 | API REST |
-| **API Health** | http://localhost:5000/health | Vérifier l'état de l'API |
-| **Admin Dashboard** | http://localhost:3000/admin | Dashboard administrateur |
-| **Client Dashboard** | http://localhost:3000/dashboard | Espace client |
+| **Frontend** | http://localhost:3000 | Main website |
+| **Backend API** | http://localhost:5000 | REST API |
+| **API Health** | http://localhost:5000/health | Check API status |
+| **Admin Dashboard** | http://localhost:3000/admin | Admin dashboard |
+| **Client Dashboard** | http://localhost:3000/dashboard | Client area |
 
-## ✅ Vérification de l'Installation
+## ✅ Installation Verification
 
-### 1. Tester le Backend
+### 1. Test Backend
 
 ```bash
-# Vérifier que l'API répond
+# Check that API responds
 curl http://localhost:5000/health
 ```
 
-Réponse attendue :
+Expected response:
 ```json
 {
   "success": true,
@@ -144,16 +144,16 @@ Réponse attendue :
 }
 ```
 
-### 2. Tester le Frontend
+### 2. Test Frontend
 
-Ouvrir http://localhost:3000 dans votre navigateur.
-Vous devriez voir la page d'accueil.
+Open http://localhost:3000 in your browser.
+You should see the homepage.
 
-### 3. Tester la Connexion
+### 3. Test Login
 
-1. Aller sur http://localhost:3000/auth/login
-2. Se connecter avec les identifiants de test
-3. Vous devriez être redirigé vers le dashboard
+1. Go to http://localhost:3000/auth/login
+2. Login with test credentials
+3. You should be redirected to the dashboard
 
 ## 🔧 Configuration Optionnelle
 
@@ -217,41 +217,41 @@ Pour Gmail :
 ```env
 EMAIL_HOST=smtp.gmail.com
 EMAIL_PORT=587
-EMAIL_USER=votre_email@gmail.com
-EMAIL_PASSWORD=votre_mot_de_passe_application
-EMAIL_FROM=Studio Web <noreply@studioweb.com>
+EMAIL_USER=your_email@gmail.com
+EMAIL_PASSWORD=your_app_password
+EMAIL_FROM=Horizon Studio <noreply@horizonstudio.com>
 ```
 
-## 🐛 Problèmes Courants
+## 🐛 Common Issues
 
-### Erreur: "Cannot connect to database"
+### Error: "Cannot connect to database"
 
 **Solution:**
-1. Vérifier que PostgreSQL est démarré
-2. Vérifier les credentials dans `backend/.env`
-3. Vérifier que la base `studioweb` existe
+1. Check that PostgreSQL is running
+2. Check credentials in `backend/.env`
+3. Check that `horizonstudio` database exists
 
 ```bash
-psql -U postgres -l  # Lister les bases de données
+psql -U postgres -l  # List databases
 ```
 
-### Erreur: "Port 5000 already in use"
+### Error: "Port 5000 already in use"
 
 **Solution:**
-Changer le port dans `backend/.env` :
+Change port in `backend/.env`:
 ```env
 PORT=5001
 ```
 
-Et dans `frontend/.env.local` :
+And in `frontend/.env.local`:
 ```env
 NEXT_PUBLIC_API_URL=http://localhost:5001/api
 ```
 
-### Erreur: "Module not found"
+### Error: "Module not found"
 
 **Solution:**
-Réinstaller les dépendances :
+Reinstall dependencies:
 ```bash
 cd backend
 rm -rf node_modules package-lock.json
@@ -262,48 +262,48 @@ rm -rf node_modules package-lock.json
 npm install
 ```
 
-### Le frontend ne se connecte pas au backend
+### Frontend doesn't connect to backend
 
 **Solution:**
-1. Vérifier que le backend est démarré
-2. Vérifier les URLs dans `frontend/.env.local`
-3. Vérifier la configuration CORS dans `backend/src/server.js`
+1. Check that backend is running
+2. Check URLs in `frontend/.env.local`
+3. Check CORS configuration in `backend/src/server.js`
 
-## 📚 Prochaines Étapes
+## 📚 Next Steps
 
-1. **Explorer l'application**
-   - Tester toutes les fonctionnalités
-   - Créer des produits, articles, projets
-   - Tester le système de tickets
+1. **Explore the application**
+   - Test all features
+   - Create products, articles, projects
+   - Test ticket system
 
-2. **Personnaliser**
-   - Modifier les couleurs dans `frontend/tailwind.config.js`
-   - Changer le logo et les images
-   - Adapter les textes à votre entreprise
+2. **Customize**
+   - Modify colors in `frontend/tailwind.config.js`
+   - Change logo and images
+   - Adapt texts to your business
 
-3. **Configurer les services externes**
-   - Cloudinary pour les images
-   - Stripe pour les paiements
-   - Email pour les notifications
+3. **Configure external services**
+   - Cloudinary for images
+   - Stripe for payments
+   - Email for notifications
 
-4. **Déployer en production**
-   - Consulter le README.md section "Déploiement"
-   - Configurer les variables d'environnement de production
-   - Utiliser HTTPS
+4. **Deploy to production**
+   - See README.md "Deployment" section
+   - Configure production environment variables
+   - Use HTTPS
 
-## 💡 Conseils
+## 💡 Tips
 
-- **Développement:** Utilisez toujours `npm run dev` pour le hot-reload
-- **Production:** Utilisez `npm run build` puis `npm start`
-- **Logs:** Consultez `backend/logs/` pour les logs de l'application
-- **Documentation API:** Consultez le README.md pour la liste complète des endpoints
+- **Development:** Always use `npm run dev` for hot-reload
+- **Production:** Use `npm run build` then `npm start`
+- **Logs:** Check `backend/logs/` for application logs
+- **API Documentation:** See README.md for complete endpoint list
 
-## 🆘 Besoin d'Aide ?
+## 🆘 Need Help?
 
-- **Documentation complète:** Voir `README.md`
-- **Structure du projet:** Voir `ARBORESCENCE.md`
-- **Issues:** Créer une issue sur GitHub
+- **Complete documentation:** See `README.md`
+- **Project structure:** See `ARBORESCENCE.md`
+- **Issues:** Create an issue on GitHub
 
-## 🎉 C'est Parti !
+## 🎉 Let's Go!
 
-Votre application est maintenant prête à l'emploi. Bon développement ! 🚀
+Your application is now ready to use. Happy coding! 🚀

@@ -4,20 +4,68 @@ const { query, transaction } = require('../config/database');
 const { protect, authorize } = require('../middleware/auth');
 const { asyncHandler, AppError } = require('../middleware/errorHandler');
 const { sendOrderConfirmationEmail } = require('../utils/email');
+const logger = require('../utils/logger');
 
 // Get all orders
 router.get('/', protect, asyncHandler(async (req, res) => {
-  let queryText = 'SELECT * FROM orders';
+  const { limit, sort, status } = req.query;
+  
+  let queryText = `
+    SELECT o.*, 
+           u.first_name, u.last_name, u.email as user_email,
+           json_build_object(
+             'first_name', u.first_name,
+             'last_name', u.last_name,
+             'email', u.email
+           ) as user
+    FROM orders o
+    LEFT JOIN users u ON o.user_id = u.id
+  `;
   const params = [];
+  const conditions = [];
   
   if (req.user.role === 'client') {
-    queryText += ' WHERE user_id = $1';
+    conditions.push(`o.user_id = $${params.length + 1}`);
     params.push(req.user.id);
   }
   
-  queryText += ' ORDER BY created_at DESC';
+  if (status) {
+    conditions.push(`o.status = $${params.length + 1}`);
+    params.push(status);
+  }
+  
+  if (conditions.length > 0) {
+    queryText += ' WHERE ' + conditions.join(' AND ');
+  }
+  
+  // Sorting
+  if (sort) {
+    const [field, order] = sort.split(':');
+    const validFields = ['created_at', 'total', 'status'];
+    const validOrders = ['asc', 'desc'];
+    if (validFields.includes(field) && validOrders.includes(order?.toLowerCase())) {
+      queryText += ` ORDER BY o.${field} ${order.toUpperCase()}`;
+    } else {
+      queryText += ' ORDER BY o.created_at DESC';
+    }
+  } else {
+    queryText += ' ORDER BY o.created_at DESC';
+  }
+  
+  // Limit
+  if (limit && !isNaN(parseInt(limit))) {
+    queryText += ` LIMIT ${parseInt(limit)}`;
+  }
+  
   const result = await query(queryText, params);
-  res.json({ success: true, data: result.rows });
+  
+  res.json({ 
+    success: true, 
+    data: {
+      orders: result.rows,
+      total: result.rows.length
+    }
+  });
 }));
 
 // Get order by ID
@@ -97,7 +145,7 @@ router.post('/', protect, asyncHandler(async (req, res) => {
     return order;
   });
   
-  sendOrderConfirmationEmail(result).catch(err => console.error(err));
+  sendOrderConfirmationEmail(result).catch(err => logger.error('Erreur envoi email confirmation:', err));
   res.status(201).json({ success: true, message: 'Commande créée', data: result });
 }));
 
